@@ -1,0 +1,142 @@
+
+const utilisateurs = [
+  { prenom: 'Étienne', age: 42, sexe: 'H' },
+  { prenom: 'Xan', age: 21, sexe: 'F' },
+  { prenom: 'Fred', age: 32, sexe: 'H' },
+  { prenom: 'Michel', age: 51, sexe: 'H' },
+  { prenom: 'Fred', age: 44, sexe: 'F' },
+  { prenom: 'Mehdi', age: 19, sexe: 'H' },
+  {
+    prenom: 'Sandrine', age: 28, sexe: 'F', img: 'yuna',
+  },
+  { prenom: 'James', age: 26, sexe: 'H' },
+  { prenom: 'Irina', age: 66, sexe: 'F' },
+];
+
+const newuser = prompt("comment t'appelles tu ?");
+console.log(newuser);
+
+const newuserSexe = prompt('F ou H ?');
+const ageUser = prompt('quel age as tu ?');
+const ageChoice = prompt("Quel tolérance d'âge ? Choisis entre cinq et dix");
+document.getElementById('liste').innerHTML = `hello ${newuser}, ${ageUser}ans`;
+console.log(parseInt(ageUser));
+if (newuserSexe === 'H') {
+  for (const utilisateur of utilisateurs) {
+    if (utilisateur.sexe === 'F') {
+      
+      if (utilisateur.age >= ageUser) {
+        console.log(utilisateur);
+        /**/
+        const node = document.createElement('li');
+        const textnode = document.createTextNode(`${utilisateur.prenom} ${utilisateur.age} ans`);
+        node.appendChild(textnode);
+        const styleH = document.getElementById('myList').appendChild(node);
+        styleH.style.backgroundColor = '#ff0';
+        styleH.style.color = '#0f0';
+      }
+    }
+  }
+} else {
+  for (const utilisateur of utilisateurs) {
+    if (utilisateur.sexe === 'H') {
+      console.log(utilisateur);
+      /**/
+      const node = document.createElement('li');
+      const textnode = document.createTextNode(`${utilisateur.prenom} ${utilisateur.age} ans`);
+      node.appendChild(textnode);
+      const styleF = document.getElementById('myList').appendChild(node);
+      styleF.style.backgroundColor = 'pink';
+      styleF.style.color = 'purple';
+    }
+  }
+}
+
+
+
+// let ageUser = 63;
+// let ageChoice = "ten";
+
+if (ageChoice === 'cinq'){
+  ageFive ();
+} else if (ageChoice === 'dix'){
+  ageTen ();
+}else{
+  console.log('cinq ou dix ?')
+}
+
+function ageFive(){
+let userchoice = '';
+for(let i = 0; i<utilisateurs.length; i++){
+  if (utilisateurs[i].age >= ageUser-5 && utilisateurs[i].age <= ageUser+5)
+  userchoice += utilisateurs[i].prenom + " " + utilisateurs[i].age + " ans. ";
+  
+}
+document.getElementById('test').innerHTML = userchoice;
+}
+
+function ageTen(){
+  let userchoice = '';
+for(let i = 0; i<utilisateurs.length; i++){
+  if (utilisateurs[i].age >= a-10 && utilisateurs[i].age <= a+10)
+  userchoice += utilisateurs[i].prenom + " " + utilisateurs[i].age + " ans. ";
+  
+}
+document.getElementById('test').innerHTML = userchoice;
+}
+
+
+
+/*** */
+var utilisateurs = [
+  { prenom: "Étienne", age: 42, sexe: "H" },
+  { prenom: "Xan", age: 21, sexe: "F" },
+  { prenom: "Fred", age: 32, sexe: "H" },
+  { prenom: "Michel", age: 51, sexe: "H" },
+  { prenom: "Fred", age: 44, sexe: "F" },
+  { prenom: "Marie", age: 32, sexe: "F" },
+  { prenom: "Mehdi", age: 19, sexe: "H" },
+  { prenom: "Sandrine", age: 28, sexe: "F" },
+  { prenom: "James", age: 26, sexe: "H" },
+  { prenom: "Irina", age: 66, sexe: "F" }
+];
+let a = 32;
+let b = "F";
+let ageChoice = "ten";
+
+if(ageChoice === "five"){
+  ageFive();
+}else if (ageChoice === "ten"){
+  ageTen();
+}else{
+  console.log("five or ten ?")
+}
+
+function ageFive(){
+let userchoice = '';
+for(let i = 0; i<utilisateurs.length; i++){
+  if(utilisateurs[i].sexe !== b){
+  if (utilisateurs[i].age >= a-5 && utilisateurs[i].age <= a+5)
+  userchoice += utilisateurs[i].prenom + " " + utilisateurs[i].age + " ans. ";
+  }
+}
+const node = document.createElement('li');
+const textnode = document.createTextNode(userchoice);
+node.appendChild(textnode); 
+document.getElementById('myList').appendChild(node);
+}
+
+function ageTen(){
+  let userchoice = '';
+for(let i = 0; i<utilisateurs.length; i++){
+  if(utilisateurs[i].sexe !== b){
+  if (utilisateurs[i].age >= a-10 && utilisateurs[i].age <= a+10)
+  userchoice += utilisateurs[i].prenom + " " + utilisateurs[i].age + " ans. ";
+  }
+}
+
+const node = document.createElement('li');
+const textnode = document.createTextNode(userchoice);
+node.appendChild(textnode); 
+document.getElementById('myList').appendChild(node);
+}
